@@ -67,7 +67,7 @@ export default {
         if (!this.errors) { 
             // console.log(this.$route.query.redirect);
             if (!this.$route.query.redirect) {
-            this.$router.push("/admin");
+            this.$router.push("/home");
             } else {
             this.$router.push(this.$route.query.redirect);
             }

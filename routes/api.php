@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 
 /*
@@ -18,6 +19,8 @@ use App\Http\Controllers\LoginController;
 Route::post('/register', [LoginController::class, 'register']);
 Route::post('/login', [LoginController::class, 'login']);
 Route::get('/login', [LoginController::class, 'login']);
+
+Route::patch('/home/{id}', [AdminController::class, 'update']);
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

@@ -31,6 +31,12 @@
     <a class="w-8 h-8 text-gray-700 rounded-full bg-white flex justify-center items-center" href="#slide-6">6</a>
   </div>
 </div>
+<button v-if="test">
+  Edit
+</button>
+<button v-if="test">
+  Delete
+</button>
 <div class=" px-8  items-center justify-between">
 <p class="ml-6  text-base">unirez | IT-Dienstleister für Personalwesen und SAP Business One</p>
 <p class="ml-6 text-3xl text-blue-600 pt-6">
@@ -213,6 +219,33 @@ IT-DIENSTLEISTER FÜR PERSONALWESEN UND SAP BUSINESS ONE
 </v-container>
 </template>
 <script>
+import axios from "axios";
 export default {
+
+   data() 
+      {
+          return {
+            test:"",
+          }
+      },
+
+   
+      created() {
+          this.addTest();
+      },
+        
+
+      methods: {
+
+     
+        addTest() 
+        {
+          axios.defaults.headers.common["Authorization"] =
+            "Bearer " + localStorage.getItem("access_token");
+
+            this.test = 'test';
+          
+        }, 
+    }
 }
 </script>
