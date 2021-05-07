@@ -1,18 +1,21 @@
 <template>
-  <div class="h-screen flex">
-  
+  <div class="app">
     <Navbar/>
-    <main class="flex-1 bg-gray-200 dark:bg-gray-900 overflow-y-auto transition duration-500 ease-in-out">
+ 
+    
       <router-view></router-view>
-    </main>
+  
   </div>
+  
 </template>
 
-<script>
-import Navbar from './Navbar'
+// <script>
+import Navbar from '../components/Navbar.vue';
+
 export default {
   components: {
-    Navbar
+    Navbar,
+ 
   }
 }
 </script>

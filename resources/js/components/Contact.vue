@@ -1,86 +1,136 @@
 <template>
-<v-container>
-    <div class="relative min-h-50  pb-10 font-mono text-cyan-900 "  >
-  <div class="flex justify-center py-5 ">
-       <div class="container max-w-6xl p-4  " >
-               <h1 class="py-5 text-left ml-16 font-semibold text-blue text-3xl  ">{{titlee}}</h1>
+	<v-container>
 
-<div  class="flex  pl-1 ">
-      <div class="border-2 absolute opacity-30  bg-blue h-60  fixed mx-3 "  ></div>
-   <div class="block  " >
+    <div class="w-full bg-cover bg-center" style="height:50rem; background-image: url(https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);">
+	<div class="flex items-center justify-center h-full w-full bg-blue bg-opacity-30">
+		<div class="text-center">
+		
+		
+		</div>
+			<div class="container flex flex-col justify-center items-center mx-auto my-0 py-0" v-for="contact in contacts" v-bind:key="contact.id">
 
+			<!-- Card -->
+			<div class="container justify-center px-80 -mt-50  my-0 py-0">
+				<div class="items-center justify-between py-10 px-6 pt-0 bg-white bg-opacity-70 shadow-2xl rounded-lg mx-auto  text-center">
+					<div class="px-10 -mt-6">
+						<div class="text-right">
+							<!-- <h1 class="font-serif text-3xl text-grey-800 font-medium leading-loose my-3 w-30">CONTACT
+                           </h1> -->
+							<h2 class="font-normal text-xl font-medium text-blackk  leading-loose my-9 pt-0 w-full">PRIMEX | CONTACT
+                           </h2>
+			</div>
+			<div  class="mt-0 pb-6">
+            <div class="text-left">
+                          	<h2 class="mt-2 text-3xl font-medium text-blackk leading-loose my-4 pt-0 w-full">KONTAKT
+                           </h2>
+						</div>
 
-    <div @click="goto('div1')" >
-    <div class=" flex  items-center order-1 mt-4 ml-2 bg-blue shadow-xl w-3 h-3 rounded-full  transition delay-4 duration-800 ease-in-out bg-blue hover:bg-blue transform  hover:scale-150  "  >
-     </div>
-   </div>
+               <div class="flex mt-2 py-3  pl-9 mr-60 ">
 
-    <div @click="goto('div2')">
-        <div class=" flex mt-4 items-center order-1 ml-2 bg-blue shadow-xl w-3 h-3 rounded-full  transition delay-4  duration-800 ease-in-out bg-blue hover:bg-blue transform  hover:scale-150 ">
-     </div>
-    </div>
-    
-    <div @click="goto('div3')">  <div class=" flex ml-2  mt-4 items-center order-1 bg-blue shadow-xl w-3 h-3 rounded-full  transition delay-4  duration-800 ease-in-out bg-blue hover:bg-blue transform  hover:scale-150">
-     </div>
-     </div>
+             <div>
+								<img class="inline-block w-auto pt-3 sm:h-12 " src="images/call.png">
+        
+                </div>
+                  <div class=" ml-11 text-2xl pt-2">
+             <p>Telefon:</p>
+              <!-- <p>Telefon: +49 5231 964009-0</p> -->
+                </div>
 
-<!-- butoni test -->
-       <div @click="goto('div3')">  <div class=" flex ml-2 mt-4  items-center order-1 bg-blue shadow-xl w-3 h-3 rounded-full transition delay-4  duration-800 ease-in-out bg-blue hover:bg-blue transform  hover:scale-150">
-     </div>
-     </div>
-     <!-- butoni test -->
-       <div  @click="goto('div3')">  <div class="  flex ml-2 mt-4 items-center order-1 bg-blue shadow-xl w-3 h-3 rounded-full transition delay-4  duration-800 ease-in-out bg-blue hover:bg-blue transform  hover:scale-150">
-     </div>
-     </div>
-</div>
+                <div class="ml-4 font-medium text-2xl pt-2">
+             <p > {{contact.phonenumber}}</p>
+              <!-- <p>Telefon: +49 5231 964009-0</p> -->
+                </div>
+               </div>
 
+               
+               
+                
+          
+             
+             <div  class="flex py-3  pl-9 mr-60 ">
+               <div>
+								<img class="inline-block w-auto pt-3 sm:h-12" src="images/mail.png">
+                </div>
+                    <div class=" ml-11 text-2xl pt-2">
+             <p>E-mail:</p>
+            
+                </div>
 
+                 <div class="ml-8  font-medium  text-2xl  pt-2">
+             <p>{{contact.email}}</p>
+             
+                </div>
+                  <!-- <div class=" text-justify ml-10"> {{contact.address}}</div> -->
+             </div>
 
+         
+          <div  class="flex py-3  pl-9 mr-60  ">
+               <div>
+          	<img class="inline-block w-auto pt-3 sm:h-12" src="images/location.png">
+                </div>
+                        <div class=" ml-11 text-2xl pt-2">
+             <p>Address:</p>
+         
+                </div>
+                    <div class=" ml-4 font-medium   text-2xl  pt-2">
+           
+             <p>{{contact.address}}</p>
+              
+             <p>{{contact.address2}}</p>
+           
+              
+             
+                </div>
+          </div>
 
-    <br />
-       <div class=" ml-11  pt-2">
-    <div class="div post py-2 text-left " ref="div1"><p >{{test}}</p></div>
-    <div class="div post py-2 text-left" ref="div2"><p >The investigation into the root cause and exact scope of the compromise is still ongoing.</p></div>
-    <div class="div post py-2 text-left" ref="div3"><p >As announced on the php.internals mailing list, a pair .</p></div>
+          
+						
+						
+             <div  class="flex py-3  pl-9 mr-60  ">
+               <div>
+								<img class="inline-block w-auto pt-3 sm:h-12" src="images/globe.png">
+                    </div>
+                            <div class=" ml-11 text-2xl pt-2">
+             <p>E-mail:</p>
+         
+                </div>
+                    <div class=" ml-8 font-medium  text-2xl  pt-2">
+                      <p>{{contact.internet}}</p>
+             <!-- <p>Internet:www.unirez.de</p> -->
+             
+                </div>
+          </div>
 
+  <div class="flex mt-8 ml-8">
+                    <router-link 
+                      :to="{
+                      name: 'editcontact', 
+                      params: { id: contact.id },
+                      }" >
+                    <button 
+                    v-if="loggedIn"
+                      class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-6 border border-gray-400 rounded shadow">   Edit  <i class="fas fa-edit text-gray-700 text-lg hover:text-gray-500"></i>
+                      </button>
+                    </router-link>    
+                  </div>
 
-
-
-    	<div class="post py-2  ">
-				<img src="https://images.unsplash.com/photo-1587620962725-abab7fe55159?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZ3JhbW1pbmd8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&w=1000&q=80">
-			</div>   
-     	<div class="post py-5">
-						<div class="flex">
-										<router-link :to="{
-                      name: 'editabout', 
-                      params: { id: about.id },
-                      }">
-											<button v-if="loggedIn" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">Edit <i class="fas fa-edit text-gray-700 text-lg hover:text-gray-500"></i>
-											</button>
-										</router-link>
+          </div>
 						</div>
 					</div>
-   </div>
-  
-    </div>
-    
+				</div>
+
      
 
-  </div>
-      </div>
-     </div>
 
+			</div>
+	</div>
+</div>
 
- <!-- <v-row>
-      <v-slider
-        v-model="value"
-        vertical
-        label="Regular">
-	  </v-slider>
-    </v-row> -->
+	
 
-<!-- Footeri -->
-       <footer class="mb-0 overflow-hidden">
+      
+
+             <footer class="mb-0 overflow-hidden">
             <div class="flex items-center justify-end h-20 w-full relative bg-blue my-0">
                 <div class="text-justify ml-24">
                     <h1 class="text-white text-xl capitalize bold">Need more information ?</h1>
@@ -196,30 +246,23 @@
                 </div>
             </div>
         </footer>
-  
-</v-container>
+    </v-container>
 </template>
-
-
-
 <script>
 import axios from "axios";
 export default {
-	
    data() 
       {
           return {
-            
-            isAdmin: true,
             test:"",
-            about: null,
-            abouts:[],
-			 value: 10,
-        
+            show :true,
+            contact: null,
+            contacts:[],
           }
       },
   computed:{
-     
+
+      
         loggedIn() {
            return this.$store.getters.loggedIn;
        },
@@ -233,39 +276,28 @@ export default {
     }, 
    
       created() {
-            this.getAbouts();
+            this.getContacts();
              ;
       },
         
       methods: {
-          goto(refName) {
-      var element = this.$refs[refName];
-      var top = element.offsetTop;
 
-      window.scrollTo(0, top);
-    },
-
-        getAbouts(){ 
+        getContacts(){ 
           axios.defaults.headers.common["Authorization"] =
             "Bearer " + localStorage.getItem("access_token");
     
           axios
-          .get('api/about')
+          .get('api/contact')
           .then((response) => {
-            this.about = response.data[0];
-
-            this.test = this.about.content;
-            
-            this.titlee = this.about.title;
-
-
+            this.contacts = response.data;
+            console.log(response.data);
           });
         },
-        getAbout() {
+        getContact() {
           axios.defaults.headers.common["Authorization"] =
             "Bearer " + localStorage.getItem("access_token");
                 
-          axios.get(`/api/editabout/${this.about}`)
+          axios.get(`/api/editcontact/${this.contact}`)
               .then((response) => {
                 this.data = response.data;
       });
@@ -274,40 +306,3 @@ export default {
 
 }
 </script>
-
-<style scoped>
-
-  .sidebar {
-    position: fixed;
-    top: 30px;
-    left: 10px;
-    max-width: 230px;
-    font-size: 18px;
-  }
-  .menu {
-    padding: 0;
-    list-style: none;
-  }
-  .current-section {
-    padding-top: 50px;
-  }
-  .current-section input {
-    max-width: 3em;
-  }
-  .menu-item {
-    margin-bottom: 20px;
-  }
-  .menu-item a {
-    cursor: pointer;
-  }
-  .main {
-    margin-left: 300px;
-    font-size: 25px;
- }
-  .customActive {
-    color: #178ce6;
-    border-left: 1px solid #178ce6;
-    padding-left: 5px;
-    transition: all 0.5s;
-  }
-</style>

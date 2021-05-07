@@ -1,9 +1,8 @@
 import Vue from 'vue'
 import App from './components/App.vue';
+
 import router from '../js/router/index';
 import store from '../js/store/index';
-
- 
 
 
 
@@ -13,5 +12,6 @@ import store from '../js/store/index';
     store,
     components: {
         App
+        
     },
 });

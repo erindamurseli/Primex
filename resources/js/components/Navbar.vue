@@ -1,71 +1,61 @@
 <template>
-  <nav v-if="!['login'].includes($route.name)" class="relative flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg bg-white-500 mb-3 border-t-2   border-blue-400 " >
-      <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
-        <div class="w-full relative flex justify-between lg:w-auto  px-4 lg:static lg:block lg:justify-start ">
-        
-          <button class="text-black cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none" type="button" v-on:click="toggleNavbar()">
-            <i class="fas fa-bars"></i>
-          </button>
-        </div>
-        
-        <div v-bind:class="{'hidden': !showMenu, 'flex': showMenu}" class="lg:flex lg:flex-grow items-center">
-          <ul class="flex flex-col lg:flex-row list-none ml-auto">
-                <router-link to="/home">
-            <li class="nav-item">
-              <a class="px-3 py-2 flex items-center text-lg uppercase font-bold leading-snug text-black hover:opacity-75" >
-                <i class="fab fa-facebook-square text-lg leading-lg text-white opacity-75" /><span class="ml-2">HOME</span>
-              </a>
-            </li>
-                </router-link>
-          <div>  
-        <router-link to="/about">
-  
-            <li class="nav-item">
-              <a class="px-3 py-2 flex items-center text-lg uppercase font-bold leading-snug text-black hover:opacity-75">
-                <i class="fab fa-twitter text-lg leading-lg text-white opacity-75" /><span class="ml-2">ABOUT</span>
-              </a>
-            </li>
-            </router-link>
-          </div>
-          <router-link to="/contact">
-                  <li class="nav-item">
-                    <a class="px-3 py-2 flex items-center text-lg uppercase font-bold leading-snug text-black hover:opacity-75" h>
-                      <i class="fab fa-pinterest text-lg leading-lg text-white opacity-75" /><span class="ml-2">CONTACT</span>
-                    </a>
-                  </li>
-          </router-link>
-          </ul>
-        </div>
-      </div>
-  </nav>
+	<div class="flex flex-row justify-between items-center   space-x-3 py-1 pt-4 pb-0  bg-blue mt-0 ml-0 mr-0 px-6">
+		<a href="#" class="block">
+			<!-- <span class="sr-only">themes.dev</span> -->
+			<router-link to="/home">
+				<img class="pl-8  pb-0 w-auto sm:h-10" src="images/logo.png">
+			</router-link>
+		</a>
+		<nav class="flex flex-row space-x-6 text-white  font-bold " v-if="!['login'].includes($route.login)">
+			<router-link to="/home"> <a href="#" class="mx-3 text-lg border-b-2 border-transparent hover:border-b-2 hover:border-white transition duration-500  ">HOME</a>
+			</router-link>
+			<router-link to="/about"> <a href="#" class="mx-3 text-lg border-b-2 border-transparent hover:border-b-2 hover:border-white transition duration-500 ">ABOUT</a>
+			</router-link>
+			<router-link to="/contact"> <a href="#" class="mx-3 text-lg border-b-2 border-transparent hover:border-b-2 hover:border-white transition duration-500">CONTACT</a>
+			</router-link>
+			<button class="text-white font-bold" v-if="loggedIn" @click="logout "> <a href="#" class="mx-3 text-lg border-b-2 border-transparent hover:border-b-2 hover:border-white transition duration-500">LOGOUT</a>
+			</button>
+		</nav>
+	</div>
 </template>
-
-// <script>
-// import axios from 'axios';
-// export default {
-//     data() {
-//         return {
-
-//         }
-//     },
-//     computed:{
-//         loggedIn() {
-//             return this.$store.getters.loggedIn;
-//         },
-//     },
-//     methods: {
-//         logout() {
-//             axios.defaults.headers.common["Authorization"] =
-//                 "Bearer " + localStorage.getItem("access_token");
-        
-//             this.$store.dispatch("destroyToken").then(() => {
-//                 this.$router.push("/").catch(()=>{});
-//             });
-//         },
-//     }
-// }
-// </script>
-
+<script>
+	import axios from "axios";
+	export default {
+	   data() 
+	      {
+	          return {
+	              isAdmin: true,
+	              test:"",
+	          
+	          }
+	      },
+	    computed:{
+	
+	    loggedIn() {
+	           return this.$store.getters.loggedIn;
+	       },
+	     
+	    }, 
+	   
+	      created() {
+	          
+       },
+	        
+	      methods: {
+	
+	       logout()  {
+	          axios.defaults.headers.common["Authorization"] =
+	             "Bearer " + localStorage.getItem("access_token");
+	        
+	      this.$store.dispatch("destroyToken").then(() => {
+	             this.$router.push("/login").catch(()=>{});
+	             
+	           });
+	        },
+	     
+	    }
+	  
+	}
+</script>
 <style>
-
 </style>
